@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    @apply text-white
+}
+
+*:focus-visible {
+    outline: none;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    touch-action: pan-x pan-y;
+    overflow-x: hidden;
+}
+
+li:before {
+    display: none;
+}
+
+.MuiSnackbarContent-root {
+    @apply justify-center
+}
+
+@media (hover: hover) {
+    .no-hover:hover {
+        @apply bg-green-800
+    }
+
+    .no-hover-grey:hover {
+        @apply bg-gray-800
+    }
+}
+
+@media (hover: none) {
+    .no-hover:active {
+        @apply bg-green-800
+    }
+
+    .no-hover-grey:active {
+        @apply bg-gray-900
+    }
+}
+
+.modal-slide-down {
+    animation-name: slide-down;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down-close {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.modal-slide-down-close {
+    animation-name: slide-down-close;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.number {
+    position: absolute;
+    font-size: 2rem;
+    color: green;
+    animation: moveUp 3s forwards;
+    left: 40%;
+    bottom: 35vh;
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(0, -20vh) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, -30vh) scale(0.5); /* Поднимаем вверх на 100px */
+    }
+}
+
+.transform__view {
+    animation: transform__view-animation 0.5s forwards;
+}
+
+@keyframes transform__view-animation {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hide {
+    animation: hide-animation 0.5s forwards;
+}
+
+@keyframes hide-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.transition {
+    transition: all 1s;
+}
+
